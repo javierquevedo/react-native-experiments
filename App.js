@@ -1,24 +1,25 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Alert,
+  ScrollView
+} from "react-native";
+import { createStackNavigator } from "react-navigation";
 
-import AboutView from  './App/Components/AboutView'
+import MainMenu from "./App/Screens/MainMenu";
+import AboutView from "./App/Screens/AboutView";
+
+const RootStack = createStackNavigator({
+  Home: {
+    screen: MainMenu
+  }
+});
 
 export default class App extends React.Component {
   render() {
-    return (
-      <View style={styles.container}>
-      <AboutView />
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
+    return <RootStack />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
